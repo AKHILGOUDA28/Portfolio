@@ -1,5 +1,3 @@
-import { createRoot } from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-
-createRoot(document.getElementById("root")!).render(<App />);
+// This file is redundant. The project has migrated to Next.js (App Router).
+// Entry point is now in src/app/
+export {};
