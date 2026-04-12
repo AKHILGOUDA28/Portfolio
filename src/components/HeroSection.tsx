@@ -99,7 +99,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="text-xl md:text-2xl font-mono mb-12 min-h-[4rem]"
+          className="text-xl md:text-2xl font-mono mb-6 min-h-[4rem]"
         >
           <span className="text-muted-foreground italic">I&apos;m Skilled In </span>
           <span className="text-primary font-bold">
@@ -119,7 +119,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="flex items-center justify-center gap-2 text-muted-foreground text-sm mb-8"
+          className="flex items-center justify-center gap-2 text-muted-foreground text-sm mb-6"
         >
           <MapPin className="w-4 h-4 text-primary" />
           <span>Warangal, India</span>
