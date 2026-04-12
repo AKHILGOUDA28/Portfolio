@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+
 import { Github, Linkedin, Mail, Phone, MapPin, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profilePic from "@/assets/Akhil.png";
@@ -44,7 +46,7 @@ const HeroSection = () => {
         <div
           className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `url(${heroBg.src || heroBg})`,
+            backgroundImage: `url(${typeof heroBg === 'string' ? heroBg : (heroBg as any).src})`,
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}
@@ -80,10 +82,12 @@ const HeroSection = () => {
         >
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-primary/10 p-2.5 bg-gradient-to-tr from-primary/40 via-transparent to-secondary/40 shadow-2xl shadow-primary/10">
             <div className="w-full h-full rounded-full border-4 border-primary/50 overflow-hidden bg-muted relative group">
-              <img
-                src={profilePic.src || profilePic}
+              <Image
+                src={profilePic}
                 alt="Gouda Akhil"
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                fill
+                className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
