@@ -78,7 +78,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="relative inline-block mt-2 mb-12"
+          className="relative inline-block mt-2 mb-4"
         >
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-primary/10 p-2.5 bg-gradient-to-tr from-primary/40 via-transparent to-secondary/40 shadow-2xl shadow-primary/10">
             <div className="w-full h-full rounded-full border-4 border-primary/50 overflow-hidden bg-muted relative group">
