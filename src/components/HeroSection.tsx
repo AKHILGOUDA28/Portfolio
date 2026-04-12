@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Mail, Phone, MapPin, Download } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import profilePic from "@/assets/Akhil.png";
 
 const TypingAnimation = ({ words }: { words: string[] }) => {
   const [index, setIndex] = useState(0);
@@ -52,6 +53,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,6 +71,25 @@ const HeroSection = () => {
         >
           Gouda <span className="text-gradient">Akhil</span>
         </motion.h1>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="relative inline-block my-12"
+        >
+          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-8 border-primary/10 p-2.5 bg-gradient-to-tr from-primary/40 via-transparent to-secondary/40 shadow-2xl shadow-primary/10">
+            <div className="w-full h-full rounded-full border-4 border-primary/50 overflow-hidden bg-muted relative group">
+              <img
+                src={profilePic.src || profilePic}
+                alt="Gouda Akhil"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          </div>
+          <div className="absolute inset-0 -z-10 bg-primary/20 blur-[120px] rounded-full scale-[2] opacity-30 animate-pulse" />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
