@@ -2,6 +2,37 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
+
+const LazyEmbed = ({ children }: { children: React.ReactNode }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className="min-h-[300px] flex items-center justify-center bg-muted/10 rounded-lg">
+      {isVisible ? children : <div className="animate-pulse text-muted-foreground font-mono text-sm">Loading Preview...</div>}
+    </div>
+  );
+};
 
 const projects = [
   {
@@ -10,15 +41,17 @@ const projects = [
     tech: ["Django REST Framework", "PostgreSQL", "Groq API", "YouTube API", "React"],
     link: "https://github.com/AKHILGOUDA28/PathOfGoals",
     embed: (
-      <iframe 
-        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7430688884096679936?compact=1" 
-        height="399" 
-        width="100%" 
-        frameBorder="0" 
-        allowFullScreen={true} 
-        title="Embedded post"
-        className="rounded-lg border border-border mt-4"
-      ></iframe>
+      <LazyEmbed>
+        <iframe 
+          src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7430688884096679936?compact=1" 
+          height="399" 
+          width="100%" 
+          frameBorder="0" 
+          allowFullScreen={true} 
+          title="Embedded post"
+          className="rounded-lg border border-border"
+        ></iframe>
+      </LazyEmbed>
     ),
     points: [
       "Designed scalable backend using Django REST Framework for auth, roadmap generation, and progress tracking.",
@@ -33,16 +66,18 @@ const projects = [
     tech: ["Flask", "Python", "OpenCV", "Deep Learning", "EfficientNet-B0"],
     link: "https://github.com/AKHILGOUDA28/early-detection-DR-Capstone-Project",
     embed: (
-      <div className="relative pt-[56.25%] mt-4">
-        <iframe 
-          className="absolute inset-0 w-full h-full rounded-lg border border-border"
-          src="https://www.youtube.com/embed/S7ldgT2y7hI?autoplay=1&mute=1&loop=1&playlist=S7ldgT2y7hI" 
-          title="ET hackathon" 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowFullScreen
-        ></iframe>
-      </div>
+      <LazyEmbed>
+        <div className="relative w-full pt-[56.25%]">
+          <iframe 
+            className="absolute inset-0 w-full h-full rounded-lg border border-border"
+            src="https://www.youtube.com/embed/S7ldgT2y7hI?autoplay=1&mute=1&loop=1&playlist=S7ldgT2y7hI" 
+            title="ET hackathon" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowFullScreen
+          ></iframe>
+        </div>
+      </LazyEmbed>
     ),
     points: [
       "Built a deep learning model using EfficientNet-B0 to classify stages of diabetic retinopathy from retinal fundus images.",
@@ -57,15 +92,17 @@ const projects = [
     tech: ["Flask", "PostgreSQL", "Docker"],
     link: "https://github.com/AKHILGOUDA28/credit-approval-system",
     embed: (
-      <iframe 
-        src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7398745067940687874?compact=1" 
-        height="399" 
-        width="100%" 
-        frameBorder="0" 
-        allowFullScreen={true} 
-        title="Embedded post"
-        className="rounded-lg border border-border mt-4"
-      ></iframe>
+      <LazyEmbed>
+        <iframe 
+          src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7398745067940687874?compact=1" 
+          height="399" 
+          width="100%" 
+          frameBorder="0" 
+          allowFullScreen={true} 
+          title="Embedded post"
+          className="rounded-lg border border-border"
+        ></iframe>
+      </LazyEmbed>
     ),
     points: [
       "Developed backend system for customer registration and credit eligibility calculation.",
@@ -80,11 +117,17 @@ const projects = [
     tech: ["Python", "Scikit-learn", "XGBoost", "Data Science", "MLP"],
     link: "https://github.com/AKHILGOUDA28/Mental-state-detection-",
     embed: (
-      <img 
-        src="https://media.licdn.com/dms/image/v2/D5622AQGyIHFqd7IlNg/feedshare-shrink_2048_1536/B56Z0RJjKSKkAk-/0/1774109209539?e=1777507200&v=beta&t=X0CJq0dd5D4YCXd7vapP5p_b5NgrsZyoikvt1Lqfn8Q" 
-        alt="EEG Project" 
-        className="rounded-lg border border-border mt-4 w-full h-auto object-cover max-h-[400px]"
-      />
+      <LazyEmbed>
+        <div className="relative w-full aspect-[4/3]">
+          <Image 
+            src="https://media.licdn.com/dms/image/v2/D5622AQGyIHFqd7IlNg/feedshare-shrink_2048_1536/B56Z0RJjKSKkAk-/0/1774109209539?e=1777507200&v=beta&t=X0CJq0dd5D4YCXd7vapP5p_b5NgrsZyoikvt1Lqfn8Q" 
+            alt="EEG Project" 
+            fill
+            sizes="(max-width: 768px) 100vw, 800px"
+            className="rounded-lg border border-border object-cover"
+          />
+        </div>
+      </LazyEmbed>
     ),
     points: [
       "Developed a machine learning model to classify mental states using EEG brainwave features with high-dimensional data (988 features).",
@@ -101,11 +144,17 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript", "YouTube API"],
     link: "https://akhilgouda28.github.io/mygym/",
     embed: (
-      <img 
-        src="https://media.licdn.com/dms/image/v2/D4E22AQE3UhY2bk3gTQ/feedshare-shrink_800/B4EZV7JpwSGwAg-/0/1741527884696?e=1777507200&v=beta&t=6i9XVjOv4GD6EG04JH36DXBomyNSqlJHM4XxJ3V0NHk" 
-        alt="MyGym Project" 
-        className="rounded-lg border border-border mt-4 w-full h-auto object-cover max-h-[400px]"
-      />
+      <LazyEmbed>
+        <div className="relative w-full aspect-video">
+          <Image 
+            src="https://media.licdn.com/dms/image/v2/D4E22AQE3UhY2bk3gTQ/feedshare-shrink_800/B4EZV7JpwSGwAg-/0/1741527884696?e=1777507200&v=beta&t=6i9XVjOv4GD6EG04JH36DXBomyNSqlJHM4XxJ3V0NHk" 
+            alt="MyGym Project" 
+            fill
+            sizes="(max-width: 768px) 100vw, 800px"
+            className="rounded-lg border border-border object-cover"
+          />
+        </div>
+      </LazyEmbed>
     ),
     points: [
       "Developed a frontend gym workout planner that provides daily exercise schedules with YouTube-based visual guidance.",

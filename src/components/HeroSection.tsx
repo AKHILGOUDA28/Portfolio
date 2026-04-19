@@ -43,14 +43,17 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen min-h-[100dvh] flex items-center justify-center overflow-hidden">
       {heroBg && (
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `url(${typeof heroBg === 'string' ? heroBg : (heroBg as any).src})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }}
-        />
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <Image
+            src={heroBg}
+            alt="Hero Background"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover opacity-30 pointer-events-none"
+            quality={60}
+          />
+        </div>
       )}
       <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
 
@@ -86,6 +89,7 @@ const HeroSection = () => {
                 src={profilePic}
                 alt="Gouda Akhil"
                 fill
+                sizes="(max-width: 768px) 256px, 320px"
                 className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                 priority
               />
