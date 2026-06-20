@@ -111,9 +111,10 @@ const HeroSection = () => {
               words={[
                 "Python Backend Development",
                 "Django & Flask",
-                "MySQL & PostgreSQL",
-                "REST API Design",
-                "AI/ML Integration"
+                "Frontend Development",
+                "MySQL",
+                "REST API Design"
+                
               ]} 
             />
           </span>
@@ -136,9 +137,8 @@ const HeroSection = () => {
           className="flex flex-wrap items-center justify-center gap-4"
         >
           <a
-            href="https://drive.google.com/file/d/1dphy2WmmzuErpybx8NzJU5UC1Pbd1M7D/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/resume/Akhil_SR_University.pdf"
+            download
             className="flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
           >
             <Download className="w-4 h-4" /> Download Resume

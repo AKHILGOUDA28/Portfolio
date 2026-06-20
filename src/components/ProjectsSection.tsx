@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
 const LazyEmbed = ({ children }: { children: React.ReactNode }) => {
@@ -38,47 +37,30 @@ const projects = [
   {
     title: "PathOfGoals",
     subtitle: "AI-Powered Personalized Learning Roadmap Platform",
-    tech: ["Django REST Framework", "PostgreSQL", "Groq API", "YouTube API", "React"],
+    tech: ["Django REST Framework", "PostgreSQL", "Groq API", "React"],
     link: "https://github.com/AKHILGOUDA28/PathOfGoals",
-    embed: (
-      <LazyEmbed>
-        <iframe 
-          src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7430688884096679936?compact=1" 
-          height="399" 
-          width="100%" 
-          frameBorder="0" 
-          allowFullScreen={true} 
-          title="Embedded post"
-          className="rounded-lg border border-border"
-        ></iframe>
-      </LazyEmbed>
-    ),
     points: [
       "Designed scalable backend using Django REST Framework for auth, roadmap generation, and progress tracking.",
-      "Integrated Groq LLM API (Llama 3) and YouTube Data API for dynamic syllabus and curated resources.",
+      "Integrated Groq LLM API (Llama 3) for dynamic syllabus and curated resources.",
       "Modeled normalized relational schema (Roadmaps → Subjects → Topics → Tests → Progress) in PostgreSQL.",
       "Developed AI-powered mock test engine with automated scoring and performance analytics.",
     ],
   },
-  {
-    title: "Early Detection of Diabetic Retinopathy",
+  {    title: "Collaborative Task & Project Management System",
+    subtitle: "Flask, HTML, CSS, PostgreSQL",
+    tech: ["Flask", "HTML", "CSS", "PostgreSQL"],
+    link: "https://github.com/AKHILGOUDA28/Team-Task-Manager",
+    points: [
+      "Developed a complete web application for project management using Python (Flask) with multi-tenancy and team collaboration features.",
+      "Implemented role-based access control (RBAC) using Flask-Login for secure user authentication and permission handling.",
+      "Designed a real-time dashboard to display task status, including active, overdue, and completed tasks.",
+      "Utilized PostgreSQL to ensure efficient data management and maintain relational integrity.",
+    ],
+  },
+  {    title: "Early Detection of Diabetic Retinopathy",
     subtitle: "AI Healthcare System (Team Project)",
     tech: ["Flask", "Python", "OpenCV", "Deep Learning", "EfficientNet-B0"],
     link: "https://github.com/AKHILGOUDA28/early-detection-DR-Capstone-Project",
-    embed: (
-      <LazyEmbed>
-        <div className="relative w-full pt-[56.25%]">
-          <iframe 
-            className="absolute inset-0 w-full h-full rounded-lg border border-border"
-            src="https://www.youtube.com/embed/S7ldgT2y7hI?autoplay=1&mute=1&loop=1&playlist=S7ldgT2y7hI" 
-            title="ET hackathon" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowFullScreen
-          ></iframe>
-        </div>
-      </LazyEmbed>
-    ),
     points: [
       "Built a deep learning model using EfficientNet-B0 to classify stages of diabetic retinopathy from retinal fundus images.",
       "Developed a Flask-based web app enabling secure image upload and real-time prediction.",
@@ -91,19 +73,6 @@ const projects = [
     subtitle: "Backend Loan Management",
     tech: ["Flask", "PostgreSQL", "Docker"],
     link: "https://github.com/AKHILGOUDA28/credit-approval-system",
-    embed: (
-      <LazyEmbed>
-        <iframe 
-          src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7398745067940687874?compact=1" 
-          height="399" 
-          width="100%" 
-          frameBorder="0" 
-          allowFullScreen={true} 
-          title="Embedded post"
-          className="rounded-lg border border-border"
-        ></iframe>
-      </LazyEmbed>
-    ),
     points: [
       "Developed backend system for customer registration and credit eligibility calculation.",
       "Implemented RESTful APIs to create, approve, and manage loans.",
@@ -116,19 +85,6 @@ const projects = [
     subtitle: "Feature Selection and Machine Learning",
     tech: ["Python", "Scikit-learn", "XGBoost", "Data Science", "MLP"],
     link: "https://github.com/AKHILGOUDA28/Mental-state-detection-",
-    embed: (
-      <LazyEmbed>
-        <div className="relative w-full aspect-[4/3]">
-          <Image 
-            src="https://media.licdn.com/dms/image/v2/D5622AQGyIHFqd7IlNg/feedshare-shrink_2048_1536/B56Z0RJjKSKkAk-/0/1774109209539?e=1777507200&v=beta&t=X0CJq0dd5D4YCXd7vapP5p_b5NgrsZyoikvt1Lqfn8Q" 
-            alt="EEG Project" 
-            fill
-            sizes="(max-width: 768px) 100vw, 800px"
-            className="rounded-lg border border-border object-cover"
-          />
-        </div>
-      </LazyEmbed>
-    ),
     points: [
       "Developed a machine learning model to classify mental states using EEG brainwave features with high-dimensional data (988 features).",
       "Performed data preprocessing including duplicate removal, feature scaling, and label encoding to ensure data quality and consistency.",
@@ -140,25 +96,12 @@ const projects = [
   },
   {
     title: "MyGym",
-    subtitle: "Daily Workout Planner with YouTube Video Guidance",
-    tech: ["HTML", "CSS", "JavaScript", "YouTube API"],
+    subtitle: "Daily Workout Planner",
+    tech: ["HTML", "CSS", "JavaScript"],
     link: "https://akhilgouda28.github.io/mygym/",
-    embed: (
-      <LazyEmbed>
-        <div className="relative w-full aspect-video">
-          <Image 
-            src="https://media.licdn.com/dms/image/v2/D4E22AQE3UhY2bk3gTQ/feedshare-shrink_800/B4EZV7JpwSGwAg-/0/1741527884696?e=1777507200&v=beta&t=6i9XVjOv4GD6EG04JH36DXBomyNSqlJHM4XxJ3V0NHk" 
-            alt="MyGym Project" 
-            fill
-            sizes="(max-width: 768px) 100vw, 800px"
-            className="rounded-lg border border-border object-cover"
-          />
-        </div>
-      </LazyEmbed>
-    ),
     points: [
-      "Developed a frontend gym workout planner that provides daily exercise schedules with YouTube-based visual guidance.",
-      "Implemented interactive workout cards displaying exercise names, reps, sets, and embedded tutorial videos.",
+      "Developed a frontend gym workout planner that provides daily exercise schedules and guided routines.",
+      "Implemented interactive workout cards displaying exercise names, reps, and sets.",
       "Designed a responsive and user-friendly interface using HTML, CSS, and JavaScript.",
       "Improved user engagement by organizing workouts into day-wise muscle group plans.",
     ],
@@ -206,11 +149,6 @@ const ProjectsSection = () => {
                       {project.link.includes("github.io") ? "Live Demo" : "View on GitHub"}
                     </a>
                   </div>
-                  {project.embed && (
-                    <div className="my-6 overflow-hidden max-w-full">
-                      {project.embed}
-                    </div>
-                  )}
                 </div>
               </div>
 

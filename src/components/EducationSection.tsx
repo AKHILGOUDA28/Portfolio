@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { GraduationCap, Award } from "lucide-react";
 
@@ -7,7 +8,7 @@ const education = [
   {
     degree: "B.Tech in Computer Science Engineering",
     school: "SR University",
-    score: "CGPA: 8.1",
+    score: "CGPA: 8.34 / 10",
     icon: GraduationCap,
   },
   {
@@ -21,7 +22,7 @@ const education = [
     degree: "SSC",
     school: "Sharadha Vidhyalam High School",
     period: "2019 – 2020",
-    score: "CGPA: 10.0",
+    score: "CGPA: 10 / 10",
     icon: GraduationCap,
   },
 ];
@@ -33,6 +34,7 @@ const certifications = [
   "Infosys Springboard – Object Oriented Programming using Python",
   "12-Hour Programming Hackathon – Certificate of Participation (SR University, Sep 2023)",
   "AWS Academy Graduate – AWS Academy Cloud Foundations",
+  "ET AI Hackathon 2026 – Semi-Finalist: Recognized by The Economic Times for developing innovative AI-driven solutions and demonstrating strong problem-solving, collaboration, and technical skills",
 ];
 
 const EducationSection = () => {
@@ -68,24 +70,55 @@ const EducationSection = () => {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          className="p-6 rounded-xl border border-border bg-card shadow-card"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <Award className="w-6 h-6 text-primary" />
-            <h3 className="font-bold font-heading">Certifications</h3>
-          </div>
-          <ul className="space-y-3">
-            {certifications.map((cert) => (
-              <li key={cert} className="text-sm text-muted-foreground pl-4 relative before:absolute before:left-0 before:top-[0.6em] before:h-1 before:w-1 before:rounded-full before:bg-primary">
-                {cert}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="p-6 rounded-xl border border-border bg-card shadow-card"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <Award className="w-6 h-6 text-primary" />
+              <h3 className="font-bold font-heading">Certifications</h3>
+            </div>
+            <ul className="space-y-3">
+              {certifications.map((cert) => (
+                <li key={cert} className="text-sm text-muted-foreground pl-4 relative before:absolute before:left-0 before:top-[0.6em] before:h-1 before:w-1 before:rounded-full before:bg-primary">
+                  {cert}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            className="p-6 rounded-xl border border-border bg-card shadow-card"
+          >
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="w-full md:w-40 rounded-3xl overflow-hidden bg-muted/20">
+                <Image
+                  src="/achievements/ET-AI_Hackathon_2026.jpg"
+                  alt="ET AI Hackathon 2026"
+                  width={200}
+                  height={200}
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-4">
+                  <Award className="w-6 h-6 text-primary" />
+                  <h3 className="font-bold font-heading">Achievement</h3>
+                </div>
+                <p className="text-lg font-semibold mb-2">ET AI Hackathon 2026 – Semi-Finalist</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Recognized as a Semi-Finalist in the ET AI Hackathon 2026 organized by The Economic Times for developing innovative AI-driven solutions and demonstrating strong problem-solving, collaboration, and technical skills.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

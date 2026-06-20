@@ -1,0 +1,14 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <rect x="20" y="20" width="360" height="360" rx="40" fill="url(#grad)" opacity="0.15"/>
+  <circle cx="200" cy="160" r="72" fill="#ffffff" opacity="0.95"/>
+  <path d="M200 90L220 148H280L232 184L252 242L200 206L148 242L168 184L120 148H180L200 90Z" fill="#4f46e5"/>
+  <circle cx="200" cy="160" r="24" fill="#22c55e"/>
+  <text x="200" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="32" fill="#111827" font-weight="700">ET AI</text>
+  <text x="200" y="350" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#374151">Hackathon 2026</text>
+</svg>
